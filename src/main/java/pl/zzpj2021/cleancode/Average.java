@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class DoIt {
+public class Average {
 
     Map<Integer, Integer> integerMap = new HashMap<>();
     private int minValue = Integer.MIN_VALUE;
     private int maxValue = Integer.MAX_VALUE;
 
-    public DoIt(List<Integer> i1) {
-        init(i1);
+    public Average(List<Integer> integerList) {
+        init(integerList);
     }
 
     public void init(List<Integer> list) {
@@ -38,20 +38,12 @@ public class DoIt {
         }
     }
 
-    public int doIt(int key) {
-        if (integerMap.containsKey(key)) {
-            return integerMap.get(key);
-        } else {
-            return 0;
-        }
-    }
-
-    public double isGood() {
+    public double countAverage() {
         double acc = 0;
         double divider = 0;
         for (Entry<Integer, Integer> entry : integerMap.entrySet()) {
-            divider += entry.getValue();
             acc += entry.getKey() * entry.getValue();
+            divider += entry.getValue();
         }
         return acc / divider;
     }
@@ -62,11 +54,5 @@ public class DoIt {
 
     public int getMaxValue() {
         return maxValue;
-    }
-
-    //TODO: future use when i will know what  my name and number are
-    public String getFizzBuzzNumber(int number) {
-        //TODO: implement
-        return null;
     }
 }
